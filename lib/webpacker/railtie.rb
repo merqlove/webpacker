@@ -9,6 +9,8 @@ class Webpacker::Engine < ::Rails::Engine
       ActionController::Base.helper Webpacker::Helper
     end
 
+    Rails.application.config.x.webpacker[:packs_dist_path] ||= '/packs'
+
     if Rails.configuration.x.webpacker[:digesting]
       Webpacker::Digests.load \
         Rails.application.config.x.webpacker[:digests_path] ||
